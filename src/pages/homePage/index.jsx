@@ -1,9 +1,10 @@
 import React from 'react'
+import { Container } from './styles';
 
 function HomePage() {
     return (
         <>
-            <div>
+            <Container>
                 <h1>
                     <ul>
                         <li>
@@ -20,7 +21,7 @@ function HomePage() {
                         </li>
                     </ul>
                 </h1>
-            </div>
+            </Container>
         </>
     )
 }
