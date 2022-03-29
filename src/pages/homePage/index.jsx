@@ -5,6 +5,7 @@ function HomePage() {
     return (
         <>
             <Container>
+                <h1>Movies</h1>
                 <h1>
                     <ul>
                         <li>
