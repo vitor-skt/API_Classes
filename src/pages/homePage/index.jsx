@@ -18,19 +18,17 @@ function HomePage() {
         <>
             <Container>
                 <h1>Movies</h1>
-                <h1>
-                    <MovieList>
+                <MovieList>
 
-                        {moviesArray.map((movie => {
-                            return (
-                                <MovieListItem key={movie.id}>
-                                    <a href=""><img src={`${image_path}${movie.poster_path}`} alt={movie.title} /></a>
-                                    <span>{movie.title}</span>
-                                </MovieListItem>
-                            )
-                        }))}
-                    </MovieList>
-                </h1>
+                    {moviesArray.map((movie => {
+                        return (
+                            <MovieListItem key={movie.id}>
+                                <a href=""><img src={`${image_path}${movie.poster_path}`} alt={movie.title} /></a>
+                                <span>{movie.title}</span>
+                            </MovieListItem>
+                        )
+                    }))}
+                </MovieList>
             </Container>
         </>
     )
