@@ -1,22 +1,10 @@
 import React from 'react'
 import { Container, MovieList, MovieListItem } from './styles';
+import { useState } from 'react';
 
 function HomePage() {
 
-    const moviesArray = [
-        {
-            title: 'Spider-Man',
-            image_url: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg'
-        },
-        {
-            title: 'Batman',
-            image_url: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg'
-        },
-        {
-            title: 'Avengers',
-            image_url: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg'
-        },
-    ];
+    const [moviesArray, setMoviesArray] = useState([]);
 
     return (
         <>
@@ -27,7 +15,7 @@ function HomePage() {
 
                         {moviesArray.map((movie => {
                             return (
-                                <MovieListItem key={movie.title}>
+                                <MovieListItem key={movie.id}>
                                     <a href=""><img src={movie.image_url} alt={movie.title} /></a>
                                     <span>{movie.title}</span>
                                 </MovieListItem>
