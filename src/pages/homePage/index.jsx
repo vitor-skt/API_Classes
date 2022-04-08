@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, MovieList, MovieListItem } from './styles';
 import { useState, useEffect } from 'react';
 import { APIKey } from '../../config/key';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
 
@@ -23,7 +24,11 @@ function HomePage() {
                     {moviesArray.map((movie => {
                         return (
                             <MovieListItem key={movie.id}>
-                                <a href=""><img src={`${image_path}${movie.poster_path}`} alt={movie.title} /></a>
+
+                                <Link to={`/details/${movie.id}`}>
+                                    <img src={`${image_path}${movie.poster_path}`} alt={movie.title} />
+                                </Link>
+
                                 <span>{movie.title}</span>
                             </MovieListItem>
                         )

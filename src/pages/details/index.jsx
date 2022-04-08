@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom'
 
 function Details() {
 
-    const params = useParams()
-    console.log(params)
+    const id = useParams()
+    console.log(id)
 
     return (
         <>
