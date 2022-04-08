@@ -23,6 +23,7 @@ export const MovieListItem = styled.li`
         width: 12rem;
         border-radius: 1rem;
         margin-bottom: 2rem;
+        text-align: center;
     }
     span{
         font-size: 1.2rem;
