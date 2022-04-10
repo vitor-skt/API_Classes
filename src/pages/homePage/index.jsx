@@ -1,8 +1,9 @@
 import React from 'react'
-import { Container, MovieList, MovieListItem } from './styles';
+import { Container, MovieList, MovieListItem, InputBox, Search, Header } from './styles';
 import { useState, useEffect } from 'react';
 import { APIKey } from '../../config/key';
 import { Link } from 'react-router-dom';
+
 
 function HomePage() {
 
@@ -17,6 +18,12 @@ function HomePage() {
 
     return (
         <>
+            <Header>
+                <InputBox>
+                    <Search />
+                    <input type="text" placeholder="Search for a movie..." />
+                </InputBox>
+            </Header>
             <Container>
                 <h1>Movies</h1>
                 <MovieList>
