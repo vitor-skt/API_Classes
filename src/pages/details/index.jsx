@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { APIKey } from '../../config/key'
 import { Container } from './styles'
 
@@ -38,8 +38,10 @@ function Details() {
                     <div className="details">
                         <h1>{movie.title}</h1>
                         <span>Sinopse: {movie.sinopse}</span>
-                        <span>Release-date: {movie.releaseDate}</span>
-                        <button>Go back</button>
+                        <span className="release-date">Release-date: {movie.releaseDate}</span>
+                        <Link to={`/`}>
+                            <button>Go back</button>
+                        </Link>
                     </div>
                 </div>
             </Container>
