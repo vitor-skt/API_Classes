@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { APIKey } from '../../config/key'
+import { Container } from './styles'
 
 function Details() {
 
@@ -15,26 +16,36 @@ function Details() {
             .then(response => response.json())
             .then(data => {
 
+                const { title, poster_path, overview, release_date } = data;
+
                 const movie = {
                     id,
-                    title: data.title,
-                    sinopse: data.overview,
-                    image: `${image_path}${data.poster_path}`,
-                    releaseDate: data.release_date
+                    title,
+                    sinopse: overview,
+                    image: `${image_path}${poster_path}`,
+                    releaseDate: release_date
                 }
                 setMovie(movie)
 
             })
-        console.log(movie.data)
     }, [id])
 
     return (
         <>
-            <h1>Pagina Details</h1>
+            <Container>
+                <div className="movie">
+                    <img src={movie.image} alt={movie.sinopse} />
+                    <div className="details">
+                        <h1>{movie.title}</h1>
+                        <span>Sinopse: {movie.sinopse}</span>
+                        <span>Release-date: {movie.releaseDate}</span>
+                        <button>Go back</button>
+                    </div>
+                </div>
+            </Container>
         </>
     )
 }
 
 export default Details
 
-//https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}

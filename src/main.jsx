@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './global.scss'
-import App from './App'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/homePage'
 import Details from './pages/details'
