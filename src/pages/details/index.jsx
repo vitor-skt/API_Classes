@@ -5,7 +5,7 @@ import { APIKey } from '../../config/key'
 
 function Details() {
 
-    const id = useParams()
+    const { id } = useParams()
 
     const [movie, setMovie] = useState({})
     const image_path = 'https://image.tmdb.org/t/p/w500';
@@ -18,9 +18,9 @@ function Details() {
                 const movie = {
                     id,
                     title: data.title,
-                    overview: data.overview,
+                    sinopse: data.overview,
                     image: `${image_path}${data.poster_path}`,
-                    releaseDate: data.release_date,
+                    releaseDate: data.release_date
                 }
                 setMovie(movie)
 
@@ -36,3 +36,5 @@ function Details() {
 }
 
 export default Details
+
+//https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}
