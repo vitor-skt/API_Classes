@@ -1,11 +1,13 @@
 import React from 'react'
 import { Container, MovieList, MovieListItem, InputBox, Search, Header } from './styles';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { APIKey } from '../../config/key';
 import { Link } from 'react-router-dom';
 
 
 function HomePage() {
+
+    const [searchTerm, setSearchTerm] = useState('');
 
     const [moviesArray, setMoviesArray] = useState([]);
     const image_path = 'https://image.tmdb.org/t/p/w500';
@@ -21,14 +23,20 @@ function HomePage() {
             <Header>
                 <InputBox>
                     <Search />
-                    <input type="text" placeholder="Search for a movie..." />
+                    <input className="search" type="text"
+                        placeholder="Search for a movie..."
+                        onChange={event => {
+                            setSearchTerm(event.target.value)
+                        }} />
                 </InputBox>
             </Header>
             <Container>
                 <h1>Movies</h1>
                 <MovieList>
 
-                    {moviesArray.map((movie => {
+                    {moviesArray.filter((val) => {
+                        return val.title.toLowerCase().includes(searchTerm.toLowerCase())
+                    }).map((movie => {
                         return (
                             <MovieListItem key={movie.id}>
 
