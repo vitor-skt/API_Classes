@@ -33,7 +33,6 @@ function HomePage() {
             <Container>
                 <h1>Movies</h1>
                 <MovieList>
-
                     {moviesArray.filter((val) => {
                         return val.title.toLowerCase().includes(searchTerm.toLowerCase())
                     }).map((movie => {
